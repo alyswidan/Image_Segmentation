@@ -8,14 +8,14 @@ Dataset Preprocessing
 
 The dataset contains two folders of images, the original images and the ground truth images which are saved in matlab file format. Each image has 5 ground truth segmentation that will be used later for evaluations. We worked on 50 images of the dataset and they are all landscape images to work on images with the same sizes. Below is a subplots of an original image and its ground truth segmentation.
 
-![A random image with its associated ground truth segmentations](images/comb_images.jpg "fig:") [fig:subplots]
+![A random image with its associated ground truth segmentations](images/comb_images.jpg "fig:")
 
 K-means Clustering
 ==================
 
 In the K-means algorithm we cluster each image upon its pixels’ values. Each pixel has three values as we are dealing with images with 3-dimensions (R,G,B). We use this technique with 5 values for k : [3,5,7,9,11]. The result of the k-means is an array of the assignments for each pixel, so a pixel will have a value from the unique clusters numbers. After taking this assignments array we plotted the array as a coloured image with unique colour for each cluster. Below is a clustered image after k-means algorithm is applied.
 
-![Clustered Image using k-means algorithm](images/k-means.jpg "fig:") [fig:k-means]
+![Clustered Image using k-means algorithm](images/k-means.jpg "fig:")
 
 Evaluation Measures
 ===================
@@ -53,26 +53,26 @@ K-means vs Ground Truth
 
 Below is a comparison on one image instead of the five. And it’s obvious that the clustering of k-means is not good in our way as we cluster on the value of the pixel only, but we could improve our results by also adding channels with the pixel position to get great results and great image segmentation.
 
-![](images/comparison1.jpg "fig:") [fig:subplots]
+![](images/comparison1.jpg "fig:")
 
 Spectral Clustering vs Ground Truth
 -----------------------------------
 
 To perform spectral clustering we used the sklearn method SpectralClustering to directly build the 5-NN affinity matrix and perform the k-means step following the transformation into the spectral embedding space, however we re-sized the images to 25% of their original size since this seemed more practical given the resources we had at hand. This method seemed to perform very well on some of the samples and was horrible on others, one from each group is in the figure below, this might be due to the affinity matrix used which doesn’t seem to capture the color changes within the image.
 
-![](images/spectral_1.jpg "fig:") [fig:spec1]
+![](images/spectral_1.jpg "fig:")
 
-![](images/spectral_2.jpg "fig:") [fig:spec2]
+![](images/spectral_2.jpg "fig:")
 
 Spectral Clustering vs K-means
 ------------------------------
 
-![](images/spec_kmean.jpg "fig:") [fig:spec2]
+![](images/spec_kmean.jpg "fig:")
 
 Extra Work
 ==========
 
-![](images/added_f.jpg "fig:") [fig:addedf]
+![](images/added_f.jpg "fig:")
 
 Conclusion
 ==========
